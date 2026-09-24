@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
 namespace Arreglos.Logica
@@ -37,6 +38,56 @@ namespace Arreglos.Logica
             _tope = N;
         }
 
+
+        //metodo ordenar(Burbuja)
+        public void Ordenar()
+        {
+            Ordenar(true);
+        }
+
+        public void Ordenar(bool ascendente)
+        {
+            for (int i = 0; i < _tope; i++)
+            {
+                for (int j = i + 1; j < _tope; j++)
+                {
+
+
+
+                    if (ascendente)
+                    {
+                        if (_arreglo[i] > _arreglo[j])
+                        {
+                            Cambiar(ref _arreglo[i], ref _arreglo[j]);
+                        }
+                    }
+                    else
+                    {
+                        if (_arreglo[i] < _arreglo[j])
+                        {
+                            Cambiar(ref _arreglo[i], ref _arreglo[j]);
+                        }
+                    }
+                }
+            }
+        }
+
+            //Metodo Cambiar
+            public void Cambiar(ref int a,ref int b)
+        {
+            int aux = a;
+            a = b;
+            b = aux;
+        }
+
+
+
+
+        
+
+
+        
+
         //Metodo ToString
         public override string ToString()
         {
@@ -61,7 +112,7 @@ namespace Arreglos.Logica
 
             }
 
-            return base.ToString();
+            return cadena;
         }
     }
 }
