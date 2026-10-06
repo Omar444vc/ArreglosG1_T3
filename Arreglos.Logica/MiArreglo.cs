@@ -88,6 +88,32 @@ namespace Arreglos.Logica
 
         }
 
+        //Metodo Insertar
+        public void Insertar(int numero, int posicion)
+        {
+            if (EstaLleno)
+            {
+                throw new Exception("El arreglo esta lleno");
+            }
+            if(posicion < 0)
+            {
+                posicion = 0;
+            }
+            if (posicion > _tope)
+            {
+                posicion = _tope;
+            }
+            for (int i = _tope; i > posicion; i--)
+            {
+                _arreglo[i] = _arreglo[i - 1];
+            }
+            _arreglo[posicion] = numero;
+            _tope++;
+
+        }
+
+
+
         //Metodo Cambiar
         public void Cambiar(ref int a,ref int b)
         {
@@ -95,14 +121,8 @@ namespace Arreglos.Logica
             a = b;
             b = aux;
         }
+       
 
-
-
-
-        
-
-
-        
 
         //Metodo ToString
         public override string ToString()
