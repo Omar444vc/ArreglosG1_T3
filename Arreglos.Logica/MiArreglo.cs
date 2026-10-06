@@ -72,8 +72,24 @@ namespace Arreglos.Logica
             }
         }
 
-            //Metodo Cambiar
-            public void Cambiar(ref int a,ref int b)
+        //Metodo agregar
+        public void Agregar(int numero)
+        {
+            if (EstaLleno)
+            {
+                throw new Exception("El arreglo está lleno");
+            }
+            else
+            {
+                _arreglo[_tope] = numero;
+                _tope++;
+            }
+            
+
+        }
+
+        //Metodo Cambiar
+        public void Cambiar(ref int a,ref int b)
         {
             int aux = a;
             a = b;
